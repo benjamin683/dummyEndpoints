@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from forms import formDict
 from typing import Any
+from forms import formDict
 
 app = FastAPI()
 
 pageNumber = 0
-formDictLen = len(formDict)
+
+
+
 
 @app.post("/begin_session")
 def tool_a():
@@ -55,15 +57,12 @@ def tool_b(data: dict[Any, Any]):
     global pageNumber
     # write information to database
     if len(formDict) == pageNumber:
-        return {"message": "All information has been submitted."}
+        return {"message": "All information has been submitted. Agreement form has been sent to email"}
     pageNumber += 1
     return formDict[pageNumber]
 
 @app.post("/skip_to_last")
-def tool_c(data: dict[Any, Any]):
+def tool_c():
     global pageNumber
-    # write information to database
-    if len(formDict) == pageNumber:
-        return {"message": "All information has been submitted."}
-    pageNumber += 1
-    return formDict[pageNumber]
+    pageNumber = len(formDict)
+    return {"message": "skipping to last page"}
