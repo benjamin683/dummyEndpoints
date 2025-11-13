@@ -8,10 +8,13 @@ app = FastAPI()
 pageNumber = 0
 
 
+def send_email():
+    # send email
+    return
 
 
 @app.post("/begin_session")
-def tool_a():
+def begin_session():
     global pageNumber
     pageNumber = 0
     return {
@@ -53,16 +56,18 @@ def tool_a():
     }
 
 @app.post("/information_advance")
-def tool_b(data: dict[Any, Any]):
+def information_advance(data: dict[Any, Any]):
     global pageNumber
     # write information to database
     if len(formDict) == pageNumber:
+        send_email()
         return {"message": "All information has been submitted. Agreement form has been sent to email"}
     pageNumber += 1
     return formDict[pageNumber]
 
-@app.post("/skip_to_last")
-def tool_c():
+@app.post("/end_session")
+def end_session():
     global pageNumber
     pageNumber = len(formDict)
-    return {"message": "skipping to last page"}
+    send_email()
+    return {"message": "The current information provided has been submitted. Agreement form has been sent to email"}

@@ -791,49 +791,65 @@ formDict[7] = {
   }
 }
 
-
-# formDict[8] = {
-#   "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
-#   "questionnaire": {
-#     "name": "active_medication_list_form",
-#     "items": [
-#       "Active Medication List",
-#       "Patient: ___________   DOB: ___________   Sign Up Date: ___________",
-#       {
-#         "id": "noKnownDrugAllergies",
-#         "t": "No Known Drug Allergies",
-#         "type": "boolean",
-#         "req": False
-#       },
-#       {
-#         "id": "drugAllergies",
-#         "t": "Drug Allergies",
-#         "type": "string",
-#         "req": False,
-#         "value": ""
-#       },
-#       "Medications (Pharm # to Req Only)"
-#     ].concat(
-#       Array.from({length: 10}, (_, i) => {
-#         const n = i + 1;
-#         return {
-#           "id": `medication${n}`,
-#           "t": `Medication ${n}`,
-#           "type": "group",
-#           "req": False,
-#           "items": [
-#             {"id": `med${n}PharmNumber`, "t": "Pharm #", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}DrNumber`, "t": "Dr #", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}RxNumber`, "t": "Rx #", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}Name`, "t": "Medication (name, strength, form, IR/ER/etc.)", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}SigNumber`, "t": "SIG #", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}LastRF`, "t": "R/F Last", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}QtyOnHand`, "t": "R/F Qty on Hand", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}DoseTime`, "t": "Dose Time (A, N, P, B)", "type": "string", "req": False, "value": ""},
-#             {"id": `med${n}ReqOnly`, "t": "Req Only?", "type": "boolean", "req": False}
-#           ]
-#         };
-#       })
-#     )
-#   }
-# }
+formDict[8] = {
+    "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
+    "questionnaire": {
+        "name": "active_medication_list_form",
+        "items": [
+            "Active Medication List",
+            {
+                "id": "patientName",
+                "t": "Patient Name",
+                "type": "string",
+                "req": True,
+                "value": ""
+            },
+            {
+                "id": "dob",
+                "t": "Date of Birth",
+                "type": "string",
+                "req": True,
+                "value": ""
+            },
+            {
+                "id": "signUpDate",
+                "t": "Sign Up Date",
+                "type": "string",
+                "req": True,
+                "value": ""
+            },
+            {
+                "id": "noKnownDrugAllergies",
+                "t": "No Known Drug Allergies",
+                "type": "boolean",
+                "req": False
+            },
+            {
+                "id": "drugAllergies",
+                "t": "Drug Allergies",
+                "type": "string",
+                "req": False,
+                "value": ""
+            },
+            "Medications (Pharm # to Req Only)"
+        ] + [
+            {
+                "id": f"medication{n}",
+                "t": f"Medication {n}",
+                "type": "group",
+                "req": False,
+                "items": [
+                    {"id": f"med{n}PharmNumber", "t": "Pharm #", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}DrNumber", "t": "Dr #", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}RxNumber", "t": "Rx #", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}Name", "t": "Medication (name, strength, form, IR/ER/etc.)", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}SigNumber", "t": "SIG #", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}LastRF", "t": "R/F Last", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}QtyOnHand", "t": "R/F Qty on Hand", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}DoseTime", "t": "Dose Time (A, N, P, B)", "type": "string", "req": False, "value": ""},
+                    {"id": f"med{n}ReqOnly", "t": "Req Only?", "type": "boolean", "req": False}
+                ]
+            } for n in range(1, 11)
+        ]
+    }
+}
