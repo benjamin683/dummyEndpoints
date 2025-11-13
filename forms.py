@@ -291,7 +291,7 @@ formDict[2] = {
 formDict[3] = {
     "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
     "questionnaire": {
-        "name": "initial_information_form_2",
+        "name": "insurance_information_form",
         "items": [
   "Insurance Information",
   {
@@ -401,395 +401,395 @@ formDict[3] = {
     }    
 }
 
-# formDict[4] = {
-#   "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
-#   "questionnaire": {
-#     "name": "financially_responsible_person_form",
-#     "items": [
-#       "Financially Responsible Person Information",
-#       {
-#         "id": "responsibleName",
-#         "t": "Name",
-#         "type": "string",
-#         "req": true,
-#         "value": ""
-#       },
-#       {
-#         "id": "responsibleRelationship",
-#         "t": "Relationship",
-#         "type": "coding",
-#         "req": true,
-#         "opts": [
-#           {
-#             "code": "self",
-#             "display": "Self"
-#           },
-#           {
-#             "code": "spouse_partner",
-#             "display": "Spouse/Partner"
-#           },
-#           {
-#             "code": "poa",
-#             "display": "Power of Attorney (POA)"
-#           },
-#           {
-#             "code": "guardian_family",
-#             "display": "Guardian/Family"
-#           },
-#           {
-#             "code": "other",
-#             "display": "Other"
-#           }
-#         ]
-#       },
-#       {
-#         "id": "responsibleAddress",
-#         "t": "Address",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "responsiblePhone",
-#         "t": "Phone",
-#         "type": "string",
-#         "req": true,
-#         "value": ""
-#       }
-#     ]
-#   }
-# }
+formDict[4] = {
+  "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
+  "questionnaire": {
+    "name": "financially_responsible_person_form",
+    "items": [
+      "Financially Responsible Person Information",
+      {
+        "id": "responsibleName",
+        "t": "Name",
+        "type": "string",
+        "req": True,
+        "value": ""
+      },
+      {
+        "id": "responsibleRelationship",
+        "t": "Relationship",
+        "type": "coding",
+        "req": True,
+        "opts": [
+          {
+            "code": "self",
+            "display": "Self"
+          },
+          {
+            "code": "spouse_partner",
+            "display": "Spouse/Partner"
+          },
+          {
+            "code": "poa",
+            "display": "Power of Attorney (POA)"
+          },
+          {
+            "code": "guardian_family",
+            "display": "Guardian/Family"
+          },
+          {
+            "code": "other",
+            "display": "Other"
+          }
+        ]
+      },
+      {
+        "id": "responsibleAddress",
+        "t": "Address",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "responsiblePhone",
+        "t": "Phone",
+        "type": "string",
+        "req": True,
+        "value": ""
+      }
+    ]
+  }
+}
 
-# formDict[5] = {
-#   "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
-#   "questionnaire": {
-#     "name": "current_pharmacy_information_form",
-#     "items": [
-#       "Current Pharmacy Information",
-#       "Note: The numbers (1–4) are used to identify which pharmacy your medications are from on the medication list page.",
+formDict[5] = {
+  "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
+  "questionnaire": {
+    "name": "current_pharmacy_information_form",
+    "items": [
+      "Current Pharmacy Information",
+      "Note: The numbers (1–4) are used to identify which pharmacy your medications are from on the medication list page.",
 
-#       {
-#         "id": "pharmacy1Name",
-#         "t": "Pharmacy 1 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy1Phone",
-#         "t": "Pharmacy 1 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy1Fax",
-#         "t": "Pharmacy 1 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "pharmacy1Name",
+        "t": "Pharmacy 1 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy1Phone",
+        "t": "Pharmacy 1 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy1Fax",
+        "t": "Pharmacy 1 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "pharmacy2Name",
-#         "t": "Pharmacy 2 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy2Phone",
-#         "t": "Pharmacy 2 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy2Fax",
-#         "t": "Pharmacy 2 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "pharmacy2Name",
+        "t": "Pharmacy 2 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy2Phone",
+        "t": "Pharmacy 2 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy2Fax",
+        "t": "Pharmacy 2 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "pharmacy3Name",
-#         "t": "Pharmacy 3 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy3Phone",
-#         "t": "Pharmacy 3 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy3Fax",
-#         "t": "Pharmacy 3 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "pharmacy3Name",
+        "t": "Pharmacy 3 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy3Phone",
+        "t": "Pharmacy 3 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy3Fax",
+        "t": "Pharmacy 3 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "pharmacy4Name",
-#         "t": "Pharmacy 4 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy4Phone",
-#         "t": "Pharmacy 4 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "pharmacy4Fax",
-#         "t": "Pharmacy 4 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       }
-#     ]
-#   }
-# }
+      {
+        "id": "pharmacy4Name",
+        "t": "Pharmacy 4 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy4Phone",
+        "t": "Pharmacy 4 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "pharmacy4Fax",
+        "t": "Pharmacy 4 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      }
+    ]
+  }
+}
 
-# formDict[6] = {
-#   "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
-#   "questionnaire": {
-#     "name": "prescriber_information_form",
-#     "items": [
-#       "Prescriber Information",
-#       "Note: The numbers (1–6) are used to identify which prescriber your medications are from on the medication list page.",
+formDict[6] = {
+  "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
+  "questionnaire": {
+    "name": "prescriber_information_form",
+    "items": [
+      "Prescriber Information",
+      "Note: The numbers (1–6) are used to identify which prescriber your medications are from on the medication list page.",
 
-#       {
-#         "id": "prescriber1Name",
-#         "t": "Prescriber 1 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber1Specialty",
-#         "t": "Prescriber 1 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber1Phone",
-#         "t": "Prescriber 1 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber1Fax",
-#         "t": "Prescriber 1 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber1Name",
+        "t": "Prescriber 1 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber1Specialty",
+        "t": "Prescriber 1 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber1Phone",
+        "t": "Prescriber 1 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber1Fax",
+        "t": "Prescriber 1 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "prescriber2Name",
-#         "t": "Prescriber 2 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber2Specialty",
-#         "t": "Prescriber 2 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber2Phone",
-#         "t": "Prescriber 2 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber2Fax",
-#         "t": "Prescriber 2 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber2Name",
+        "t": "Prescriber 2 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber2Specialty",
+        "t": "Prescriber 2 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber2Phone",
+        "t": "Prescriber 2 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber2Fax",
+        "t": "Prescriber 2 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "prescriber3Name",
-#         "t": "Prescriber 3 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber3Specialty",
-#         "t": "Prescriber 3 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber3Phone",
-#         "t": "Prescriber 3 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber3Fax",
-#         "t": "Prescriber 3 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber3Name",
+        "t": "Prescriber 3 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber3Specialty",
+        "t": "Prescriber 3 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber3Phone",
+        "t": "Prescriber 3 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber3Fax",
+        "t": "Prescriber 3 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "prescriber4Name",
-#         "t": "Prescriber 4 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber4Specialty",
-#         "t": "Prescriber 4 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber4Phone",
-#         "t": "Prescriber 4 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber4Fax",
-#         "t": "Prescriber 4 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber4Name",
+        "t": "Prescriber 4 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber4Specialty",
+        "t": "Prescriber 4 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber4Phone",
+        "t": "Prescriber 4 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber4Fax",
+        "t": "Prescriber 4 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "prescriber5Name",
-#         "t": "Prescriber 5 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber5Specialty",
-#         "t": "Prescriber 5 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber5Phone",
-#         "t": "Prescriber 5 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber5Fax",
-#         "t": "Prescriber 5 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber5Name",
+        "t": "Prescriber 5 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber5Specialty",
+        "t": "Prescriber 5 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber5Phone",
+        "t": "Prescriber 5 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber5Fax",
+        "t": "Prescriber 5 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       {
-#         "id": "prescriber6Name",
-#         "t": "Prescriber 6 - Name",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber6Specialty",
-#         "t": "Prescriber 6 - Specialty",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber6Phone",
-#         "t": "Prescriber 6 - Phone",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "prescriber6Fax",
-#         "t": "Prescriber 6 - Fax",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
+      {
+        "id": "prescriber6Name",
+        "t": "Prescriber 6 - Name",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber6Specialty",
+        "t": "Prescriber 6 - Specialty",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber6Phone",
+        "t": "Prescriber 6 - Phone",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "prescriber6Fax",
+        "t": "Prescriber 6 - Fax",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
 
-#       "Upcoming Appointments",
-#       {
-#         "id": "upcomingAppointment1",
-#         "t": "Prescriber # ____ on ___________",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "upcomingAppointment2",
-#         "t": "Prescriber # ____ on ___________",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "upcomingAppointment3",
-#         "t": "Prescriber # ____ on ___________",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       },
-#       {
-#         "id": "upcomingAppointment4",
-#         "t": "Prescriber # ____ on ___________",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       }
-#     ]
-#   }
-# }
+      "Upcoming Appointments",
+      {
+        "id": "upcomingAppointment1",
+        "t": "Prescriber # ____ on ___________",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "upcomingAppointment2",
+        "t": "Prescriber # ____ on ___________",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "upcomingAppointment3",
+        "t": "Prescriber # ____ on ___________",
+        "type": "string",
+        "req": False,
+        "value": ""
+      },
+      {
+        "id": "upcomingAppointment4",
+        "t": "Prescriber # ____ on ___________",
+        "type": "string",
+        "req": False,
+        "value": ""
+      }
+    ]
+  }
+}
 
-# formDict[7] = {
-#   "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
-#   "questionnaire": {
-#     "name": "additional_notes_form",
-#     "items": [
-#       "Notes",
-#       {
-#         "id": "userNotes",
-#         "t": "Please enter any additional notes here",
-#         "type": "string",
-#         "req": false,
-#         "value": ""
-#       }
-#     ]
-#   }
-# }
+formDict[7] = {
+  "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
+  "questionnaire": {
+    "name": "additional_notes_form",
+    "items": [
+      "Notes",
+      {
+        "id": "userNotes",
+        "t": "Please enter any additional notes here",
+        "type": "string",
+        "req": False,
+        "value": ""
+      }
+    ]
+  }
+}
 
 
 # formDict[8] = {
@@ -803,13 +803,13 @@ formDict[3] = {
 #         "id": "noKnownDrugAllergies",
 #         "t": "No Known Drug Allergies",
 #         "type": "boolean",
-#         "req": false
+#         "req": False
 #       },
 #       {
 #         "id": "drugAllergies",
 #         "t": "Drug Allergies",
 #         "type": "string",
-#         "req": false,
+#         "req": False,
 #         "value": ""
 #       },
 #       "Medications (Pharm # to Req Only)"
@@ -820,17 +820,17 @@ formDict[3] = {
 #           "id": `medication${n}`,
 #           "t": `Medication ${n}`,
 #           "type": "group",
-#           "req": false,
+#           "req": False,
 #           "items": [
-#             {"id": `med${n}PharmNumber`, "t": "Pharm #", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}DrNumber`, "t": "Dr #", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}RxNumber`, "t": "Rx #", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}Name`, "t": "Medication (name, strength, form, IR/ER/etc.)", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}SigNumber`, "t": "SIG #", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}LastRF`, "t": "R/F Last", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}QtyOnHand`, "t": "R/F Qty on Hand", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}DoseTime`, "t": "Dose Time (A, N, P, B)", "type": "string", "req": false, "value": ""},
-#             {"id": `med${n}ReqOnly`, "t": "Req Only?", "type": "boolean", "req": false}
+#             {"id": `med${n}PharmNumber`, "t": "Pharm #", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}DrNumber`, "t": "Dr #", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}RxNumber`, "t": "Rx #", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}Name`, "t": "Medication (name, strength, form, IR/ER/etc.)", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}SigNumber`, "t": "SIG #", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}LastRF`, "t": "R/F Last", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}QtyOnHand`, "t": "R/F Qty on Hand", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}DoseTime`, "t": "Dose Time (A, N, P, B)", "type": "string", "req": False, "value": ""},
+#             {"id": `med${n}ReqOnly`, "t": "Req Only?", "type": "boolean", "req": False}
 #           ]
 #         };
 #       })
