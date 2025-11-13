@@ -1,3 +1,5 @@
+import smtplib
+from email.message import EmailMessage
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Any
@@ -7,15 +9,39 @@ app = FastAPI()
 
 pageNumber = 0
 
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+EMAIL_ADDRESS = "benjaminwang42@gmail.com"       
+EMAIL_PASSWORD = "vvmppsbyysncebnv"
+RECIPIENT_EMAIL = ""
 
 def send_email():
-    # send email
+    msg = EmailMessage()
+    msg['Subject'] = "Agreement Form"
+    msg['From'] = EMAIL_ADDRESS
+    msg['To'] = RECIPIENT_EMAIL
+    msg.set_content("Please fill out the pharmacy agreement at your earliest convenience. Thank you!")
+
+    with open(f"PharmacyAgreement.pdf", "rb") as f:
+        file_data = f.read()
+        file_name = f.name
+    msg.add_attachment(file_data, maintype="application", subtype="pdf", filename=file_name)
+
+    try:
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+            server.starttls()
+            server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            server.send_message(msg)
+        print("Email sent successfully")
+    except Exception as e:
+        print(f"Failed to send email: {e}")
     return
 
 
 @app.post("/begin_session")
 def begin_session():
-    global pageNumber
+    global pageNumber, RECIPIENT_EMAIL
+    RECIPIENT_EMAIL = ""
     pageNumber = 0
     return {
         "bookingId": "1234567890",
@@ -57,11 +83,18 @@ def begin_session():
 
 @app.post("/information_advance")
 def information_advance(data: dict[Any, Any]):
-    global pageNumber
+    global pageNumber, RECIPIENT_EMAIL
     # write information to database
     if len(formDict) == pageNumber:
-        send_email()
-        return {"message": "All information has been submitted. Agreement form has been sent to email"}
+        if RECIPIENT_EMAIL:
+            send_email()
+            return { "message": f"All information has been submitted. Agreement form has been sent to {RECIPIENT_EMAIL}"}
+        else:
+            return { "message": "All information has been submitted, but no recipient email was provided so no agreement form was sent."}
+    elif pageNumber == 1:
+        if data['patientUpdates']['email']:
+            RECIPIENT_EMAIL = data['patientUpdates']['email']
+            
     pageNumber += 1
     return formDict[pageNumber]
 
@@ -69,5 +102,9 @@ def information_advance(data: dict[Any, Any]):
 def end_session():
     global pageNumber
     pageNumber = len(formDict)
-    send_email()
-    return {"message": "The current information provided has been submitted. Agreement form has been sent to email"}
+
+    if RECIPIENT_EMAIL:
+        send_email()
+        return { "message": f"All information has been submitted. Agreement form has been sent to {RECIPIENT_EMAIL}"}
+    else:
+        return { "message": "All information has been submitted, but no recipient email was provided so no agreement form was sent."}
