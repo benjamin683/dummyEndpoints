@@ -7,7 +7,7 @@ from forms import formDict, userDict
 
 app = FastAPI()
 
-pageNumber = 0
+pageNumber = 2
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
@@ -15,7 +15,7 @@ EMAIL_ADDRESS = "benjaminwang42@gmail.com"
 EMAIL_PASSWORD = "vvmppsbyysncebnv"
 RECIPIENT_EMAIL = ""
 
-def send_email():
+def deliver_email():
     msg = EmailMessage()
     msg['Subject'] = "Agreement Form"
     msg['From'] = EMAIL_ADDRESS
@@ -37,6 +37,22 @@ def send_email():
         print(f"Failed to send email: {e}")
     return
 
+@app.post("/set_email")
+def set_email(data: dict[Any, Any]):
+    global RECIPIENT_EMAIL
+    args = data["args"]
+    email = args.get("emailAddress")
+    RECIPIENT_EMAIL = email
+    
+    print("NEW EMAIL:", RECIPIENT_EMAIL)
+    return {"Message": "Email has been recorded"}
+
+@app.post("/send_email")
+def send_email():
+    deliver_email()
+    
+    return {"Message": "Email has been sent"}
+
 @app.post("/get_details")
 def get_details(data: dict[Any, Any]):
     args = data["args"]
@@ -57,39 +73,17 @@ def begin_session():
     RECIPIENT_EMAIL = ""
     pageNumber = 0
     return {
-        "bookingId": "1234567890",
         "userId": "7c68d02b-96e3-4083-b559-300c1e910364",
         "questionnaire": {
-            "name": "initial_information",
+            "name": "Select Appointment Type",
             "items": [
-                {
-                    "id": "admissionDate",
-                    "t": "Date",
-                    "type": "string",
-                    "req": True,
-                    "value": ""         
-                },
-                {
-                    "id": "admittedBy",
-                    "t": "Admitted by",
-                    "type": "string",
-                    "req": True,
-                    "value": ""       
-                },
-                {
-                    "id": "admissionType",
-                    "t": "Admission Type",
-                    "type": "checkbox",
-                    "options": ["Re-Admit", "New Admit"],
-                    "req": True
-                },
-                {
-                    "id": "admissionMethod",
-                    "t": "Admission was",
-                    "type": "checkbox",
-                    "options": ["In Person", "Virtual", "Phone"],
-                    "req": True
-                }
+            {
+                "id": "appointmentType",
+                "t": "What type of appointment would you like?",
+                "type": "select",
+                "options": ["In-Store", "Phone", "Virtual"],
+                "req": True
+            }
             ]
         }
     }
@@ -99,15 +93,12 @@ def information_advance(data: dict[Any, Any]):
     global pageNumber, RECIPIENT_EMAIL
     # write information to database
     if len(formDict) == pageNumber:
-        if RECIPIENT_EMAIL:
-            send_email()
-            return { "message": f"All information has been submitted. Agreement form has been sent to {RECIPIENT_EMAIL}"}
-        else:
-            return { "message": "All information has been submitted, but no recipient email was provided so no agreement form was sent."}
-    elif pageNumber == 1:
-        if data['patientUpdates']['email']:
-            RECIPIENT_EMAIL = data['patientUpdates']['email']
-            
+        return { "message": f"All information has been submitted."}
+    
+    if data['args'].get('patientUpdates').get('emailAddress'):
+        RECIPIENT_EMAIL = data['args'].get('patientUpdates').get('emailAddress')
+        print("UPDATING RECIPIENT EMAIL:", RECIPIENT_EMAIL)
+
     pageNumber += 1
     return formDict[pageNumber]
 
@@ -116,8 +107,6 @@ def end_session():
     global pageNumber
     pageNumber = len(formDict)
 
-    if RECIPIENT_EMAIL:
-        send_email()
-        return { "message": f"All information has been submitted. Agreement form has been sent to {RECIPIENT_EMAIL}"}
-    else:
-        return { "message": "All information has been submitted, but no recipient email was provided so no agreement form was sent."}
+    deliver_email()
+    return { "message": f"All information has been submitted. Agreement form has been sent to {RECIPIENT_EMAIL}"}
+
