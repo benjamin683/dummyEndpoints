@@ -1,6 +1,6 @@
 import smtplib
 from email.message import EmailMessage
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Any
 from forms import formDict, userDict
@@ -37,11 +37,18 @@ def send_email():
         print(f"Failed to send email: {e}")
     return
 
-@app.post("/retrieve_details")
-def retrieve_details(data: dict[Any, Any]):
-    patient_id = data["patient_id"]
+@app.post("/get_details")
+def get_details(data: dict[Any, Any]):
+    args = data["args"]
+    patient_id = args.get("patient_id")
+    if not patient_id:
+        raise HTTPException(status_code=400, detail="Missing patient_id")
 
-    patient_details = userDict[patient_id]
+    patient_details = userDict.get(patient_id)
+    
+    if not patient_details:
+        raise HTTPException(status_code=404, detail="Patient not found")
+    
     return patient_details
 
 @app.post("/begin_session")
